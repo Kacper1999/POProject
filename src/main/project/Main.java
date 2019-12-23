@@ -29,44 +29,9 @@ public class Main extends Application  {
         Button newWindowButton = new Button();
         newWindowButton.setText("Open new primaryStage");
         newWindowButton.setOnAction(l -> Statistics.display("New primaryStage", "You have opened new primaryStage"));
-
-//        Stage stage1 = new Stage();
-//        Group group = new Group();
-//
-//        int rectangleWidth = 20;
-//        int rectangleHeight = 20;
-//        Rectangle tmp = new Rectangle(0, 0, rectangleWidth, rectangleHeight);
-//        tmp.setFill(Color.DARKGREEN);
-//        group.getChildren().add(tmp);
-//
-//        Scene scene = new Scene(group, 300, 300);
-//
-//        stage1.setScene(scene);
-//        stage1.show();
-//        try {
-//            java.util.concurrent.TimeUnit.SECONDS.sleep(2);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        Circle circle1 = new Circle(1.5 * rectangleWidth, rectangleHeight / 2, rectangleWidth / 2, Color.RED);
-//        group.getChildren().add(circle1);
-
+        
 
         new InitialConditions(primaryStage);
-
-//        grid.getChildren().add(circle1);
-//
-//
-//
-//        Button button2 = new Button();
-//        button2.setText("Return");
-//        button2.setOnAction(l -> primaryStage.setScene(setConditions));
-//
-//        StackPane layout2 = new StackPane();
-//        layout2.getChildren().add(button2);
-//
-//
-//        animation = new Scene(layout2, 850, 750);
     }
 
 
