@@ -1,65 +1,41 @@
 package project;
 
-import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class Animation {
-    private final int genesSize = 32;
-    private final int numOfAnimal;
+class Animation {
     private final int mapWidth;
     private final int mapHeight;
-    private final int fruitEnergy;
-    private final int moveEnergy;
-    private final int startEnergy;
-    private final double jungleRatio;
     private final RolledMapWithJungle map1;
     private final RolledMapWithJungle map2;
-    private List<EvolvingAnimal> animals1;
-    private List<EvolvingAnimal> animals2;
 
     Animation(int numOfAnimals, int mapWidth, int mapHeight, double jungleRatio, int fruitEnergy, int moveEnergy, int startEnergy) {
-        this.numOfAnimal = numOfAnimals;
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
-        this.moveEnergy = moveEnergy;
-        this.startEnergy = startEnergy;
-        this.jungleRatio = numOfAnimals;
-        this.fruitEnergy = fruitEnergy;
 
         this.map1 = new RolledMapWithJungle(mapWidth, mapHeight, jungleRatio, fruitEnergy);
-        this.animals1 = new ArrayList<>();
+        int genesSize = 32;
         for (int i = 0; i < numOfAnimals; i++) {
             int x = new Random().nextInt(mapWidth);
             int y = new Random().nextInt(mapHeight);
             Genes genes = new Genes(genesSize);
             EvolvingAnimal animal = new EvolvingAnimal(map1, new Vector2d(x, y), genes, startEnergy, moveEnergy, startEnergy);
             map1.place(animal);
-            animals1.add(animal);
         }
 
         this.map2 = new RolledMapWithJungle(mapWidth, mapHeight, jungleRatio, fruitEnergy);
-        this.animals2 = new ArrayList<>();
         for (int i = 0; i < numOfAnimals; i++) {
             int x = new Random().nextInt(mapWidth);
             int y = new Random().nextInt(mapHeight);
             Genes genes = new Genes(genesSize);
             EvolvingAnimal animal = new EvolvingAnimal(map1, new Vector2d(x, y), genes, startEnergy, moveEnergy, startEnergy);
             map2.place(animal);
-            animals2.add(animal);
         }
         this.animate();
     }

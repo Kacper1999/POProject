@@ -3,15 +3,11 @@ package project;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class InitialConditions implements EventHandler {
@@ -23,12 +19,11 @@ public class InitialConditions implements EventHandler {
     private TextField jungleRatioTextField;
     private TextField numOfAnimalsTextField;
     private TextField moveEnergyTextField;
-    private GridPane grid;
     private Stage stage;
 
     InitialConditions(Stage stage) {
         this.stage = stage;
-        this.grid = getGrid();
+        GridPane grid = getGrid();
         Scene setConditions = new Scene(grid, 550, 550);
         stage.setScene(setConditions);
         stage.show();
